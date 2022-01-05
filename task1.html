@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.animate-grow {
+    width: 300px;
+    height: 72px;
+    line-height: 72px;
+    background: #4ae48f;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    animation: animate_grow 2s infinite;
+}
+.animate-grow:hover {
+    animation: none;
+}
+ 
+@keyframes animate_grow {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+</style>
+</head>
+<body>
+
+
+<div class="animate-grow">Хочу учиться у Айтигеника</div>
+
+</body>
+</html>
+
+
+

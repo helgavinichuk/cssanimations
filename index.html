@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <main>
+       <section>
+           <h1 class="center">Знакомство с правилом <span class="upper">@keyframes</span></h1>
+           <div class="row">
+               <div class="title-height">С помощью <span class="bold">@keyframes</span> можно создавать анимацию на HTML странице</div>
+               <div class="itgen-14">
+                   <img src="src/image/itgenik-14.png" alt="">
+               </div>
+           </div>
+           <div class="block-code">Объявление ключевого кадра в CSS3 имеет следующую форму</div>
+           <div class="code">
+               <code>
+                    <pre>
+@keyframes название_анимации {
+    from {
+        /* начальные значения свойств CSS */
+    }
+    to {
+        /* конечные значения свойств CSS */
+    }
+}
+                    </pre>
+               </code>
+           </div>
+           <p class="margin-top">После ключевого слова <span class="bold">@keyframes</span> идет имя анимации. Затем в фигурных скобках определяются как минимум два ключевых кадра. Блок после ключевого слова <span class="bold">from</span> объявляется начальный ключевой кадр, а после клюевого слова <span class="bold">to</span> в блоке определяется конечный ключевой кадр. Внутри каждого ключевого кадра определяется одно или несколько свойств CSS, подобно тому, как создается обычный стиль.</p>
+           <p>Основные свойства для работы с анимацией</p>
+           <ul class="anim-style">
+               <li><span class="bold">animation-name</span>. Чтобы создать анимацию к элементу, у него в стиле нужно добавить свойство <span class="bold">animation-name</span>. Значение этого свойства - название применяемой анимации.</li>
+               <li><span class="bold">animation-duration</span> - задает время анимации в секундах или миллисекундах.</li>
+               <li><span class="bold">animation-iteration-count</span> определяет, сколько раз будет повторяться анимация (3, infinite).</li>
+               <li><span class="bold">animation-delay</span> можно определить время задержки анимации.</li>
+               <li><span class="bold">animation-timing-functio</span> - плавность выполнения ани мации:</li>
+               <ul>
+                    <li>linear: линейная функция плавности, изменение свойства происходит равномерно по времени</li>
+                    <li>ease: функция плавности, при которой анимация ускоряется к середине и замедляется к концу, предоставляя более естественное изменение</li>
+                    <li>ease-in: функция плавности, при которой происходит только ускорение в начале</li>
+                    <li>ease-out: функция плавности, при которой происходит только ускорение в начале</li>
+                    <li>ease-in-out: функция плавности, при которой анимация ускоряется к середине и замедляется к концу, предоставляя более естественное изменение</li>
+                    <li>cubic-bezier: для анимации применяется кубическая функция Безье</li>
+               </ul>
+               <li><span class="bold">animation</span> - сокращенный способ определения вышеописанных свойств</li>
+            </ul>
+            <div class="row">
+                <div class="code code-rect">
+<pre>
+<code>    
+.rect img{
+    width: 80px;
+    height: 80px;
+    /* animation-name: rectangle;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    animation-timing-function: ease; */
+    animation: rectangle 5s infinite 2s linear;
+}
+@keyframes rectangle {
+    0%{
+        margin-left: 0px; 
+        margin-top: 0px;
+    }
+    25%{
+        margin-left: 200px;
+         margin-top: 0px;
+    }
+    50%{
+        margin-top: 400px; 
+        margin-left: 200px;
+    }
+    75%{
+        margin-left: 0px; 
+        margin-top: 400px;
+    }
+    100%{
+        margin-top: 0px; 
+        margin-left: 0px;
+    }
+}
+</code>
+</pre>                    
+                </div>
+                <div class="rect">
+                    <img src="src/image/itgenik-12.png" alt="">
+                </div>
+            </div>        
+        </section>
+        <section cl>
+            <h1 class="center">Примеры</h1>
+            <h2>Изменение цвета у кубика. Реализовано с помощью трех ключевых кадров:</h2>
+            <ul>
+                <li>0% - синий цвет</li>
+                <li>50% - промежуточный оранжевый цвет</li>
+                <li>100% - зеленый цвет</li>
+            </ul>
+            <div class="example1">
+                <div class="code1">
+                    <pre><code>
+@keyframes change-background {
+    0% {
+        background: blue;
+    }
+    50% {
+        background: orange;
+    }
+    100% {
+        background: green;
+    }
+}
+                      
+.box {
+    animation: change-background 4s linear infinite ;
+}
+                    </code></pre>
+                  </div>
+                  <div class="box"></div>
+                  <div class="highlight"></div>
+            </div>
+            <h2 class="example-p">Изменение размера изображения и его мигание:</h2>
+            <p>При создании данной анимации были использованы свойства:</p>
+            <ul>
+                <li>box-shadow - эффект мигания (подсвечивания) изображения</li>
+                <li>border-radius - мигающая рамка вокруг изображения</li>
+                <li>margin-top - перемещение изображения вниз</li>
+                <li>margin-left - перемещение изображения влево</li>
+            </ul>
+            <div class="row">
+                <div class="code code-rect">
+<pre>
+<code>
+.changeSize img{
+    width: 80px; 
+        animation: change-size-img 3s  1s infinite;
+}
+     
+@keyframes change-size-img {
+    0%{
+        margin-top: 0px;
+        margin-left: 0px;
+        box-shadow: 0 0 0 0 rgba(25, 228, 167, 0);
+        border-radius: 50%;
+    }
+    70% {
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px rgba(125, 241, 203, 0.4);
+    }
+    100%{
+        margin-top: 200px;
+        margin-left: 100px;
+        width: 200px;
+        box-shadow: 0 0 0 0 rgba(25, 248, 144, 0);
+        border-radius: 50%;
+    }
+}
+</code>
+</pre>
+                </div>
+                <div class="changeSize">
+                    <img src="src/image/itgenik-02.png" alt="">
+                </div>
+            </div>
+            <h2 class="example-p">Плавное изменение прозрачности</h2>
+            <p>Для добавления анимации прозрачности необходимо работать с ключевыми кадрами и свойством <span class="bold">opacity</span></p>
+            <div class="row">
+                
+                <div class="opacity-img">
+                    <img src="src/image/itgenik-08.png" alt="">
+                </div>
+                <div class="code code-rect">
+<pre>
+<code>
+.opacity-img img{
+    width: 350px;
+    animation: opacity-img 5s  infinite;
+}
+    
+@keyframes opacity-img {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    75% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+</code>
+</pre>
+                </div>
+            </div>
+            <h2 class="example-p">Плавный поворот изображения</h2>
+            <div class="row">
+                <div class="code code-rect">
+<pre>
+<code>
+.rotate-img img{
+    width: 250px;
+    animation: rotate-img 5s  infinite;
+}
+@keyframes rotate-img {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+</code>
+</pre>
+                </div>
+                <div class="rotate-img">
+                    <img src="src/image/itgenik-01.png" alt="">
+                </div>
+            </div>            
+            
+        </section>
+        <section  class="practice">
+            <h2 class="center">Заданиe1</h2>
+            <div class="task1 row">
+                <div >Попробуй реализовать движение кнопки следующим образом</div>
+                <div>
+                    <video controls autoplay muted loop>
+                        <source src="src/video/task1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+        <section  class="practice">
+            <h2 class="center">Заданиe2</h2>
+            <div class="task1 row">
+                <div >Попробуй реализовать движение  кубика следующим образом</div>
+                <div>
+                    <video controls autoplay muted loop>
+                        <source src="src/video/task2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+        <section  class="practice">
+            <h2 class="center">Заданиe3</h2>
+            <div class="task1 row">
+                <div >Попробуй реализовать анимацию фона следующим образом</div>
+                <div>
+                    <video controls autoplay muted loop>
+                        <source src="src/video/task3.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+<script src="src/script.js"></script>
+</body>
+</html>
